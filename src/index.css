@@ -10,6 +10,7 @@
   transition: all 0.1s ease;
   margin-left: 30px;
   margin-top: 2px;
+  background-color: #ebe5f9;
 }
 .botaoLogo:hover {
   cursor: pointer;

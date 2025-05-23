@@ -16,6 +16,10 @@ export default function App() {
     setCafes(prev => [...prev, { ...novoCafe, id: prev.length + 1 }]);
   }
 
+  function removerDoCarrinho(id) {
+  setCarrinho(prev => prev.filter(item => item.id !== id));
+}
+
   function adicionarAoCarrinho(item) {
     setCarrinho(prev => {
       const existente = prev.find(c => c.id === item.id);
@@ -35,7 +39,11 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home cafes={cafes} adicionarAoCarrinho={adicionarAoCarrinho} />} />
-        <Route path="/checkout" element={<Checkout carrinho={carrinho} />} />
+        <Route
+          path="/checkout"
+          element={<Checkout carrinho={carrinho} removerDoCarrinho={removerDoCarrinho} />}
+        />
+
         <Route path="/addcafe" element={<AddCofe adicionarCafe={adicionarCafe} />} />
       </Routes>
     </BrowserRouter>

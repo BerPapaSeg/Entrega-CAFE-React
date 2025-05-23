@@ -13,87 +13,123 @@ export default function CafeCard({ id, nome, descricao, preco, imagem, tags, adi
 
   function handleAddCarrinho() {
     adicionarAoCarrinho({ id, nome, preco, imagem, quantidade });
-    setQuantidade(1); // reseta a quantidade
+    setQuantidade(1);
   }
 
   return (
     <div style={styles.card}>
       <img src={imagem} alt={nome} style={styles.imagem} />
-      <h3>{nome}</h3>
-      <p>{descricao}</p>
-      <p><strong>R$ {preco.toFixed(2)}</strong></p>
-
+      
       <div style={styles.tags}>
-        {tags && tags.map((tag, idx) => (
-          <span key={idx} style={styles.tag}>{tag}</span>
+        {tags.map((tag, idx) => (
+          <span key={idx} style={styles.tag}>{tag.toUpperCase()}</span>
         ))}
       </div>
 
-      <div style={styles.qtdContainer}>
-        <button onClick={decrementar} style={styles.qtdBtn}>–</button>
-        <span>{quantidade}</span>
-        <button onClick={incrementar} style={styles.qtdBtn}>+</button>
-      </div>
+      <h3 style={styles.nome}>{nome}</h3>
+      <p style={styles.descricao}>{descricao}</p>
 
-      <button onClick={handleAddCarrinho} style={styles.btnAdd}>
-        Adicionar ao carrinho
-      </button>
+      <div style={styles.footer}>
+        <div style={styles.preco}>
+          <span style={{ fontSize: '14px' }}>R$</span>
+          <strong style={{ fontSize: '20px' }}>{preco.toFixed(2)}</strong>
+        </div>
+
+        <div style={styles.quantidade}>
+          <button onClick={decrementar} style={styles.qtdBtn}>–</button>
+          <span style={styles.qtdNum}>{quantidade}</span>
+          <button onClick={incrementar} style={styles.qtdBtn}>+</button>
+        </div>
+
+        <button onClick={handleAddCarrinho} style={styles.btnCarrinho}>
+          <img src="/src/assets/Icon9.png" alt="Carrinho" style={{ width: '40px',height:'40px' }} />
+        </button>
+      </div>
     </div>
   );
 }
 
 const styles = {
   card: {
-    border: '1px solid #ccc',
+    backgroundColor: '#F3F2F2',
+    borderRadius: '20px',
     padding: '16px',
-    borderRadius: '12px',
-    width: '220px',
+    width: '250px',
     textAlign: 'center',
-    backgroundColor: '#fff',
-    boxShadow: '0 4px 8px rgba(0,0,0,0.1)'
+    boxShadow: '0 2px 6px rgba(0,0,0,0.05)',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center'
   },
   imagem: {
-    width: '100%',
-    height: '140px',
+    width: '100px',
+    height: '100px',
+    marginTop: '-40px',
     objectFit: 'cover',
-    borderRadius: '8px',
+    borderRadius: '50%',
   },
   tags: {
     display: 'flex',
-    justifyContent: 'center',
-    gap: '6px',
-    margin: '8px 0',
-    flexWrap: 'wrap'
+    gap: '4px',
+    marginTop: '8px',
+    marginBottom: '8px',
   },
   tag: {
-    backgroundColor: '#eee',
+    backgroundColor: '#F1E9C9',
+    color: '#C47F17',
+    fontSize: '10px',
+    fontWeight: 'bold',
     padding: '4px 8px',
-    borderRadius: '12px',
-    fontSize: '12px'
+    borderRadius: '999px',
   },
-  qtdContainer: {
+  nome: {
+    fontSize: '18px',
+    fontWeight: '700',
+    margin: '8px 0 4px 0',
+  },
+  descricao: {
+    fontSize: '14px',
+    color: '#8D8686',
+    marginBottom: '16px',
+  },
+  footer: {
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     gap: '8px',
-    margin: '10px 0'
+    width: '100%',
+  },
+  preco: {
+    display: 'flex',
+    alignItems: 'flex-end',
+    gap: '2px',
+    color: '#574F4D',
+  },
+  quantidade: {
+    display: 'flex',
+    alignItems: 'center',
+    backgroundColor: '#E6E5E5',
+    borderRadius: '8px',
+    padding: '4px 8px',
   },
   qtdBtn: {
-    width: '30px',
-    height: '30px',
-    fontSize: '18px',
-    backgroundColor: '#ddd',
+    background: 'none',
     border: 'none',
-    borderRadius: '50%',
-    cursor: 'pointer'
-  },
-  btnAdd: {
-    backgroundColor: '#222',
-    color: '#fff',
-    padding: '8px 16px',
-    border: 'none',
-    borderRadius: '8px',
+    fontSize: '16px',
+    color: '#8047F8',
     cursor: 'pointer',
-    marginTop: '8px'
+    padding: '4px',
+  },
+  qtdNum: {
+    margin: '0 6px',
+    fontWeight: 'bold',
+  },
+  btnCarrinho: {
+    backgroundColor: '#4B2995',
+    border: 'none',
+    padding: '0px',
+    borderRadius: '6px',
+    cursor: 'pointer',
   }
+
 };

@@ -1,7 +1,8 @@
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
+import '/src/css/checkout.css'
 
-export default function Checkout({carrinho}) {
+export default function Checkout({carrinho, removerDoCarrinho}) {
   const navigate = useNavigate();
   const total = carrinho.reduce((acc, item) => acc + item.preco * item.quantidade, 0);
 
@@ -74,6 +75,11 @@ export default function Checkout({carrinho}) {
                     <h4>{item.nome}</h4>
                     <p>Quantidade: {item.quantidade}</p>
                     <p>Subtotal: R$ {(item.preco * item.quantidade).toFixed(2)}</p>
+                    <button onClick={() => removerDoCarrinho(item.id)}>
+                      <img src='/src/assets/Icon9.png'></img>
+                      <p> REMOVER</p>
+                    </button>
+
                   </div>
                 </div>
               ))
