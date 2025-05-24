@@ -90,7 +90,7 @@ export default function Checkout({carrinho, removerDoCarrinho}) {
               <div className="resumo-total">
                 <hr />
                 <p><strong>Total:</strong> R$ {total.toFixed(2)}</p>
-                <button className="btn-finalizar">Finalizar pedido</button>
+                <button onClick = {() => navigate('/succsess')} className="btn-finalizar">Finalizar pedido</button>
               </div>
             )}
           </div>

@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Home from './pages/Home';
 import Checkout from './pages/Checkout';
 import AddCofe from './pages/AddCofe';
+import Succsess from './pages/Success';
 
 export default function App() {
   const [cafes, setCafes] = useState([
@@ -45,6 +46,7 @@ export default function App() {
         />
 
         <Route path="/addcafe" element={<AddCofe adicionarCafe={adicionarCafe} />} />
+        <Route path="/succsess" element={<Succsess />} />
       </Routes>
     </BrowserRouter>
   );
