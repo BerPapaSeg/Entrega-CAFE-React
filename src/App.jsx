@@ -4,12 +4,13 @@ import React, { useState } from 'react';
 import Home from './pages/Home';
 import Checkout from './pages/Checkout';
 import AddCofe from './pages/AddCofe';
-import Succsess from './pages/Success';
+import Success from './pages/Success';
 
 export default function App() {
   const [cafes, setCafes] = useState([
     
   ]);
+
 
   const [carrinho, setCarrinho] = useState([]);
 
@@ -46,7 +47,7 @@ export default function App() {
         />
 
         <Route path="/addcafe" element={<AddCofe adicionarCafe={adicionarCafe} />} />
-        <Route path="/succsess" element={<Succsess />} />
+        <Route path="/success" element={<Success />} />
       </Routes>
     </BrowserRouter>
   );

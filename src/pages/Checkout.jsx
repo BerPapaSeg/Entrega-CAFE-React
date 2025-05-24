@@ -1,11 +1,13 @@
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-
+import { useState } from 'react';
 
 export default function Checkout({carrinho, removerDoCarrinho}) {
   const navigate = useNavigate();
   const total = carrinho.reduce((acc, item) => acc + item.preco * item.quantidade, 0);
+
+  const [selectedMethod, setSelectedMethod] = useState('');
 
 
   return (
@@ -55,9 +57,9 @@ export default function Checkout({carrinho, removerDoCarrinho}) {
             </div>
 
             <div className="payment-options">
-              <button className="btn-pay">💳 CARTÃO DE CRÉDITO</button>
-              <button className="btn-pay">🏦 CARTÃO DE DÉBITO</button>
-              <button className="btn-pay">💵 DINHEIRO</button>
+              <button onClick={() => setSelectedMethod('Cartão de Crédito')} className="btn-pay">💳 CARTÃO DE CRÉDITO</button>
+              <button onClick={() => setSelectedMethod ('Cartão de Débito')} className="btn-pay">🏦 CARTÃO DE DÉBITO</button>
+              <button onClick={() => setSelectedMethod ('Dinheiro')} className="btn-pay">💵 DINHEIRO</button>
             </div>
           </div>
         </div>
@@ -90,7 +92,18 @@ export default function Checkout({carrinho, removerDoCarrinho}) {
               <div className="resumo-total">
                 <hr />
                 <p><strong>Total:</strong> R$ {total.toFixed(2)}</p>
-                <button onClick = {() => navigate('/succsess')} className="btn-finalizar">Finalizar pedido</button>
+                <button
+  onClick={() => {
+    if (!selectedMethod) {
+      alert('Por favor, selecione um método de pagamento.');
+      return;
+    }
+    navigate('/success', { state: { paymentMethod: selectedMethod } });
+  }}
+  className="btn-finalizar"
+>
+  Finalizar pedido
+</button>
               </div>
             )}
           </div>

@@ -1,9 +1,13 @@
 import React from 'react';
 import Navbar from '/src/components/Navbar';
 import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+
 
 function Success() {
     const navigate = useNavigate();
+    const location = useLocation();
+const { paymentMethod } = location.state || {};
   return (
     <div>
         <Navbar />
@@ -16,21 +20,24 @@ function Success() {
                 <div className='entrega-cont'>
                     <div className='info'>
                         <img src='' alt='icon'></img>
-                        <p>Entrega em 
-                            <span>
-                                Rua João Queen da Silva, 102 Caputera - Sorocaba, SP
-                            </span>
-                        </p>
+                        <div className=''>
+                            <p>Entrega em</p>
+                            <span>Rua Sugante queen manoel, Caputera - Sorocaba, SP</span>
+                        </div>
                     </div>
                     <div className='info'>
                         <img src='' alt='icon'></img>
-                        <p>Previsão de entrega </p> 
-                        <span>20 min - 30 min</span>            
+                        <div className=''>
+                            <p>Previsão de entrega</p>
+                            <span>20 min - 30 min </span>
+                        </div>            
                     </div>
                     <div className='info'>
                         <img src='' alt='icon'></img>
-                        <p>Pagamento na entrega </p> 
-                        <span>{}</span>            
+                        <div className=''>
+                            <p>Pagamento na entrega</p>
+                            <span>{paymentMethod}</span>
+                        </div>          
                     </div>
                 </div>
             </div>
