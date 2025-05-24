@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
-import '/src/css/checkout.css'
+import Footer from '../components/Footer';
+
 
 export default function Checkout({carrinho, removerDoCarrinho}) {
   const navigate = useNavigate();
@@ -75,8 +76,8 @@ export default function Checkout({carrinho, removerDoCarrinho}) {
                     <h4>{item.nome}</h4>
                     <p>Quantidade: {item.quantidade}</p>
                     <p>Subtotal: R$ {(item.preco * item.quantidade).toFixed(2)}</p>
-                    <button onClick={() => removerDoCarrinho(item.id)}>
-                      <img src='/src/assets/Icon9.png'></img>
+                    <button id='remove-btn-carr' onClick={() => removerDoCarrinho(item.id)}>
+                      <img id= 'img-lixo' src='/src/assets/lixeria2.webp'></img>
                       <p> REMOVER</p>
                     </button>
 

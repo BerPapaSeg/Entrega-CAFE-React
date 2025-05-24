@@ -4,22 +4,24 @@ import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Sobre from '../components/Sobre';
 import ListaCafe from '../components/ListaCafe';
+import Footer from '../components/Footer';
 
 export default function Home({ cafes, adicionarAoCarrinho}) {
   const navigate = useNavigate();
 
   return (
-    <div>
-      <header>
-        <Navbar />
-      </header>
       <div>
-        <Sobre />
-      </div>
+        <header>
+          <Navbar />
+        </header>
+        <div>
+          <Sobre />
+        </div>
 
-      <div className='catalogo'>
-        <ListaCafe cafes = {cafes} adicionarAoCarrinho = {adicionarAoCarrinho}/>
+        <div className='catalogo'>
+          <ListaCafe cafes = {cafes} adicionarAoCarrinho = {adicionarAoCarrinho}/>
+        </div>
+        <footer><Footer /></footer>
       </div>
-    </div>
   );
 }
