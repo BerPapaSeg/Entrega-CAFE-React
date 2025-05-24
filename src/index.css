@@ -512,8 +512,6 @@ h3 {
   justify-content: center;
   align-items: center;
   gap: 20px;
-  background-color: blue;
-  
 }
 
 .subTitle {
@@ -535,20 +533,24 @@ h3 {
 .entrega-cont {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 30px;
   border: solid;
   border-radius: 20px;
   margin-top: 50px;
   padding: 40px;
 }
 
+.entrega-cont img {
+  width: 32px;
+  height: 32px;
+
+}
+
 .info {
   display: flex;
   flex-direction: row;
-  justify-content: space-between
   align-items: center;
   gap: 20px;
-  background-color: brown;
   flex-wrap: wrap;
 }
 

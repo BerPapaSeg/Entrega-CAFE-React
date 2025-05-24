@@ -19,21 +19,21 @@ const { paymentMethod } = location.state || {};
                 </div>
                 <div className='entrega-cont'>
                     <div className='info'>
-                        <img src='' alt='icon'></img>
+                        <img src='/src/assets/Icon10.png' alt='icon'></img>
                         <div className=''>
                             <p>Entrega em</p>
                             <span>Rua Sugante queen manoel, Caputera - Sorocaba, SP</span>
                         </div>
                     </div>
                     <div className='info'>
-                        <img src='' alt='icon'></img>
+                        <img src='/src/assets/Icon11.png' alt='icon'></img>
                         <div className=''>
                             <p>Previsão de entrega</p>
                             <span>20 min - 30 min </span>
                         </div>            
                     </div>
                     <div className='info'>
-                        <img src='' alt='icon'></img>
+                        <img src='/src/assets/Icon12.png' alt='icon'></img>
                         <div className=''>
                             <p>Pagamento na entrega</p>
                             <span>{paymentMethod}</span>
